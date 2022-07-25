@@ -8,31 +8,15 @@
                value="${filter!""}" >
         <label for="floatingInput">Search by tag</label>
     </div>
-    <button type="submit" class="btn btn-primary mb-3 h-125">Search</button>
+    <button type="submit" class="btn btn-primary mb-3">Search</button>
 </form>
 
-
-
-<p>
-    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-        Toggle width collapse
-    </button>
-</p>
-<div style="min-height: 120px;">
-    <div class="collapse collapse-horizontal" id="collapseWidthExample">
-        <div class="card card-body" style="width: 300px;">
-            This is some placeholder content for a horizontal collapse. It's hidden by default and shown when triggered.
-        </div>
-    </div>
-</div>
-
-<!--
-<a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary mb-3 gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
     Add new Message
-</a>
+</button>
 <div class="collapse" id="collapseExample">
-    <div class="container text-center">
-        <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
+        <div class="d-grid gap-3 w-50">
             <div class="form-group">
                 <input type="text" class="form-control" name="text" placeholder="Enter message"/>
             </div>
@@ -40,19 +24,20 @@
                 <input type="text" class="form-control" name="tag" placeholder="Tag"/>
             </div>
             <div class="form-group">
-                <div class="custom-file">
-                    <input type="file" name="file" id="customFile">
-                    <label class="custom-file-label" for="customFile">Choose file</label>
+                <div class="input-group">
+                    <input type="file" class="form-control" name="file" id="inputGroupFile04"
+                           aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                    <button class="btn btn-primary" type="button" id="inputGroupFileAddon04">Add file</button>
                 </div>
             </div>
             <input type="hidden" name="_csrf" value="${_csrf.token}">
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Add</button>
+                <button type="submit" class="btn btn-primary mb-3">Add</button>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
--->
+
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
     <#list messages as message>
