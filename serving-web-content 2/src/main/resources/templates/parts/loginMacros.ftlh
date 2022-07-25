@@ -1,17 +1,13 @@
 <#macro login path isRegisterForm>
 <form action="${path}" method="post">
-    <div class="form-group row">
-        <label class="form-label"> User Name:</label>
-        <div class="col-sm-6">
-            <input type="text" name="username" class="form-control" placeholder="User name"/>
+    <div class="form-floating mb-3">
+            <input type="text" name="username" class="form-control" id="floatingInput" placeholder="name@example.com" />
+            <label for="floatingInput">User name</label>
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
     </div>
-    <div class="mb-3">
-        <label class="form-label"> Password:</label>
-        <div class="col-sm-6">
-            <input type="password" name="password" class="form-control" placeholder="Password"/>
-        </div>
+    <div class="form-floating mb-3">
+        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password"/>
+        <label for="floatingPassword">Password</label>
     </div>
 
     <input type="hidden" name="_csrf" value="${_csrf.token}">

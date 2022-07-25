@@ -2,14 +2,31 @@
 
 
 <@c.page>
-<div class="form-row">
-    <div class="form-grouo col-md-6">
-        <form method="get" action="/main" class="form-inline">
-            <input type="text" name="filter" class="form-control" placeholder="Search by tag" value="${filter!""}" >
-            <button type="submit" class ="btn btn-primary">Search</button>
-        </form>
+<form class="input-group mb-3 w-50" method="get" action="/main"><!--row g-2-->
+    <div class="form-floating mb-3">
+        <input type="text" name="filter" class="form-control" id="floatingInput" placeholder="Search by tag"
+               value="${filter!""}" >
+        <label for="floatingInput">Search by tag</label>
+    </div>
+    <button type="submit" class="btn btn-primary mb-3 h-125">Search</button>
+</form>
+
+
+
+<p>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+        Toggle width collapse
+    </button>
+</p>
+<div style="min-height: 120px;">
+    <div class="collapse collapse-horizontal" id="collapseWidthExample">
+        <div class="card card-body" style="width: 300px;">
+            This is some placeholder content for a horizontal collapse. It's hidden by default and shown when triggered.
+        </div>
     </div>
 </div>
+
+<!--
 <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
     Add new Message
 </a>
@@ -35,6 +52,7 @@
         </form>
     </div>
 </div>
+-->
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
     <#list messages as message>
