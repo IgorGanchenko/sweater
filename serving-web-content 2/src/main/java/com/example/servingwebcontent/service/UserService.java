@@ -1,5 +1,6 @@
 package com.example.servingwebcontent.service;
 
+import com.example.servingwebcontent.config.PasswordConfig;
 import com.example.servingwebcontent.domain.Role;
 import com.example.servingwebcontent.domain.User;
 import com.example.servingwebcontent.repos.UserRepo;
@@ -22,8 +23,9 @@ public class UserService implements UserDetailsService {
     @Autowired
     private MailSender mailSender;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    //    @Autowired
+//    private PasswordEncoder passwordEncoder;
+    private PasswordConfig passwordConfig;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -39,7 +41,7 @@ public class UserService implements UserDetailsService {
         user.setActivity(true);
         user.setRoles(Collections.singleton(Role.USER));
         user.setActivationCode(UUID.randomUUID().toString());
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(passwordConfig.getPasswordEncoder().encode(user.getPassword()));
         userRepo.save(user);
 
         sendMessage(user);

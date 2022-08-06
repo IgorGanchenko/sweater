@@ -14,11 +14,18 @@
 <button class="btn btn-primary mb-3 gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
     Add new Message
 </button>
-<div class="collapse" id="collapseExample">
+<div class="collapse <#if message??>show</#if>" id="collapseExample">
     <form method="post" enctype="multipart/form-data">
         <div class="d-grid gap-3 w-50">
             <div class="form-group">
-                <input type="text" class="form-control" name="text" placeholder="Enter message"/>
+                <input type="text" class="form-control ${(textError??)?string('is-invalid', '')}"
+                       value="<#if message??>${message.text}</#if>" name="text" placeholder="Enter message"/>
+                <#if textError??>
+                    <div class="invalid-feedback">
+                        ${textError}
+                    </div>
+                </#if>
+
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" name="tag" placeholder="Tag"/>

@@ -1,6 +1,9 @@
 package com.example.servingwebcontent.domain;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Message {
@@ -8,6 +11,8 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotBlank(message = "Please, enter the text")
+    @Length(max = 2048, message = "too long")
     private String text;
     private String tag;
 
@@ -57,8 +62,8 @@ public class Message {
         this.author = author;
     }
 
-    public String getAuthorName(){
-        return author !=null ? author.getUsername() : "<none>";
+    public String getAuthorName() {
+        return author != null ? author.getUsername() : "<none>";
     }
 
     public String getFilename() {
