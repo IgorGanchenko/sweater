@@ -28,14 +28,16 @@ public class RegistrationController {
                           BindingResult bindingResult,
                           Model model) {
 
-        if (user.getPassword() != null &&
-        !user.getPassword().equals(user.getPassword2())){
-            model.addAttribute("passwordError", "Passwords are different!");
+        String password = user.getPassword();
+        if (password == null || password.equals("")) {
+            model.addAttribute("passwordError", "Incorrect password!");
+        } else if (!password.equals(user.getPassword2())) {
+            model.addAttribute("password2Error", "Passwords are different!");
         }
 
-        if(bindingResult.hasErrors()){
-            Map<String, String> errors = ControllerUtils.getErrors(bindingResult);
-            model.addAttribute(errors);
+        if (bindingResult.hasErrors()) {
+            Map<String, String> errorMap = ControllerUtils.getErrors(bindingResult);
+            model.mergeAttributes(errorMap);
             return "registration";
         }
 

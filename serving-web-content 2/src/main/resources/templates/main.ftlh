@@ -1,6 +1,5 @@
 <#import "parts/common.ftlh" as c>
 
-
 <@c.page>
 <form class="input-group mb-3 w-50" method="get" action="/main"><!--row g-2-->
     <div class="form-floating mb-3">

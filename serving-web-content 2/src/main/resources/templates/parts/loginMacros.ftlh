@@ -11,7 +11,7 @@
             </#if>
         </div>
         <div class="form-floating mb-3">
-            <input type="password" name="password" class="form-control"
+            <input type="password" name="password" class="form-control ${(passwordError??)?string('is-invalid', '')}"
                    id="floatingPassword" placeholder="Password"/>
             <label for="floatingPassword">Password</label>
             <#if passwordError??>
@@ -23,7 +23,7 @@
 
         <#if isRegisterForm>
         <div class="form-floating mb-3">
-            <input type="password2" name="password2" class="form-control"
+            <input type="password" name="password2" class="form-control ${(password2Error??)?string('is-invalid', '')}"
                    id="floatingPassword2" placeholder="Retype password"/>
             <label for="floatingPassword2">Password2</label>
             <#if password2Error??>
@@ -34,13 +34,13 @@
         </div>
 
             <div class="form-floating mb-3">
-                <input type="email" name="email" class="form-control"
-                       id="floatingEmail" placeholder="Email"  value="<#if user??>user.email</#if>"/>
+                <input type="email" name="email" class="form-control ${(emailError??)?string('is-invalid', '')}"
+                       id="floatingEmail" placeholder="Email"  value="<#if user??>${user.email}</#if>"/>
                 <label for="floatingEmail">E-mail</label>
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                <#if mailError??>
+                <#if emailError??>
                 <div class="invalid-feedback">
-                    ${mailError}
+                    ${emailError}
                 </div>
             </#if>
             </div>

@@ -23,8 +23,8 @@ public class UserService implements UserDetailsService {
     @Autowired
     private MailSender mailSender;
 
-    //    @Autowired
 //    private PasswordEncoder passwordEncoder;
+    @Autowired
     private PasswordConfig passwordConfig;
 
     @Override

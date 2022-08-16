@@ -12,6 +12,4 @@
         name = "unknown"
         isAdmin = false
     >
-
-
 </#if>

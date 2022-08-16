@@ -1,6 +1,5 @@
 package com.example.servingwebcontent.domain;
 
-import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -22,6 +21,7 @@ public class User implements UserDetails {
     @NotBlank(message = "Please, enter the password")
     private String password;
     @Transient
+    @NotBlank(message = "Please, retype the password")
     private String password2;
     private boolean activity;
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
