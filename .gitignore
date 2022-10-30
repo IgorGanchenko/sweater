@@ -7,3 +7,4 @@
 *.properties
 *.properties
 serving-web-content 2/src/main/resources/application.properties
+*.png

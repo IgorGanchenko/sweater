@@ -1,4 +1,6 @@
 <#macro login path isRegisterForm>
+
+
     <form action="${path}" method="post">
         <div class="form-floating mb-3">
             <input type="text" name="username" class="form-control ${(usernameError??)?string('is-invalid', '')}"
@@ -22,16 +24,16 @@
         </div>
 
         <#if isRegisterForm>
-        <div class="form-floating mb-3">
-            <input type="password" name="password2" class="form-control ${(password2Error??)?string('is-invalid', '')}"
-                   id="floatingPassword2" placeholder="Retype password"/>
-            <label for="floatingPassword2">Password2</label>
-            <#if password2Error??>
-            <div class="invalid-feedback">
-                ${password2Error}
+            <div class="form-floating mb-3">
+                <input type="password" name="password2" class="form-control ${(password2Error??)?string('is-invalid', '')}"
+                       id="floatingPassword2" placeholder="Retype password"/>
+                <label for="floatingPassword2">Password2</label>
+                <#if password2Error??>
+                <div class="invalid-feedback">
+                    ${password2Error}
+                </div>
+                </#if>
             </div>
-            </#if>
-        </div>
 
             <div class="form-floating mb-3">
                 <input type="email" name="email" class="form-control ${(emailError??)?string('is-invalid', '')}"
@@ -42,7 +44,14 @@
                 <div class="invalid-feedback">
                     ${emailError}
                 </div>
-            </#if>
+                </#if>
+            </div>
+            <div class="form-floating mb-3">
+                <div class="g-recaptcha" data-sitekey="6Lcf-MUiAAAAAI975ch-CZHzGz2kqtCAUStF4oX2"></div>
+                    <#if captchaError??>
+                        <div class="alert alert-danger" role="alert">
+                                ${captchaError}
+                    </#if>
             </div>
         </#if>
 
